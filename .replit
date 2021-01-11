@@ -1,2 +1,2 @@
-run = "python dlgo/bot_v_bot.py"
+run = "python bot_v_bot.py"
 language = "python"
