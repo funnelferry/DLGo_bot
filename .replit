@@ -1,0 +1,2 @@
+run = "python dlgo/bot_v_bot.py"
+language = "python"

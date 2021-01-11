@@ -1,5 +1,5 @@
 import copy
-from dlgo.gotypes import Player
+from gotypes import Player
 
 class Move():
     def __init__(self, point=None, is_pass=False, is_resign=False):
@@ -163,11 +163,11 @@ class GameState():
     def does_move_violate_ko(self, player, move):
         if not move.is_play:
             return False
-        next_board = copy.deecopy(self.board)
+        next_board = copy.deepcopy(self.board)
         next_board.place_stone(player, move.point)
         next_situation = (player.other, next_board)
         past_state = self.previous_state
-        with past_state is not None:
+        while past_state is not None:
             if past_state.situation == next_situation:
                 return True
             past_state = past_state.previous_state
@@ -180,6 +180,6 @@ class GameState():
             return True
         return (
             self.board.get(move.point) is None and
-            not self.is_move_self_captire(self.next_player, move) and
+            not self.is_move_self_capture(self.next_player, move) and
             not self.does_move_violate_ko(self.next_player, move)
         )
