@@ -1,2 +1,2 @@
-run = "python bot_v_bot.py"
+run = "python human_v_bot.py"
 language = "python"
